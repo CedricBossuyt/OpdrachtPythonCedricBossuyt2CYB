@@ -1,0 +1,8 @@
+# SQLite database-interactie
+#sqlite3 (is al standaard geïnstalleerd)
+
+# Manipulatie van datum en tijd
+#datetime (is al standaard geïnstalleerd)
+
+# CSV-verwerking
+#csv (is al standaard geïnstalleerd)
