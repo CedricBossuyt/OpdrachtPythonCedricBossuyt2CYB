@@ -20,6 +20,12 @@ def main():
     if poetssessie_info:
         naam, begintijd, duur = poetssessie_info
         print(f"{naam} is begonnen met poetsen om {begintijd} en heeft {duur} minuten gepoetst.")
+    
+    export_to_csv = input("Wil je alle informatie naar CSV exporteren? (ja/nee): ").lower().strip() == 'ja'
+
+    if export_to_csv:
+        db.export_to_csv()
+        print("Alle informatie is geëxporteerd naar poetsInfo.csv.")
 
 if __name__ == "__main__":
     main()

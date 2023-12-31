@@ -1,6 +1,7 @@
 import sqlite3
 import os
 from datetime import datetime
+import csv
 
 class Database:
     def __init__(self, db_name):
@@ -54,3 +55,19 @@ class Database:
             WHERE poetssessies.id = ?
         ''', (poetssessie_id,))
         return cursor.fetchone()
+    
+    def export_to_csv(self):
+        cursor = self.conn.cursor()
+        cursor.execute('SELECT * FROM personen')
+        personen = cursor.fetchall()
+
+        cursor.execute('SELECT * FROM poetssessies')
+        poetssessies = cursor.fetchall()
+
+        with open('poetsInfo.csv', 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(['Personen ID', 'Naam'])
+            writer.writerows(personen)
+            writer.writerow([])
+            writer.writerow(['Poetssessie ID', 'Persoon ID', 'Begintijd', 'Duur'])
+            writer.writerows(poetssessies)
