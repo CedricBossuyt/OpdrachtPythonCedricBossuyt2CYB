@@ -20,6 +20,12 @@ def main():
     if poetssessie_info:
         naam, begintijd, duur = poetssessie_info
         print(f"{naam} is begonnen met poetsen om {begintijd} en heeft {duur} minuten gepoetst.")
+        if duur > 5:
+            print("Oei, toch niet TE lang poetsen he...")
+        elif duur >= 2:
+            print("Flink!")
+        else:
+            print("Stout, je zou meer moeten poetsen!")
     
     export_to_csv = input("Wil je alle informatie naar CSV exporteren? (ja/nee): ").lower().strip() == 'ja'
 
